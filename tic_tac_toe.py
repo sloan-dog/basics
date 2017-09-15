@@ -185,7 +185,6 @@ class Gameboard(object):
 		spacer = "".join( ["-"] * ( (self.width * 2) - 1 ) )
 		repr_string = ""
 		for row in range(self.height):
-			# matrix.append([" "] * self.width)
 			for col in range(self.width):
 				key = self.__gen_key(row, col)
 				if key in self.board:
