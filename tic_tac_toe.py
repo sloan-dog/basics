@@ -173,20 +173,6 @@ class Gameboard(object):
 		self.board[self.__gen_key(row, col)] = player
 
 	def represent_board(self):
-		print(repr(self.board))
-		spacer = "".join( ["-"] * ( (self.width * 2) - 1 ) )
-		matrix = []
-		for i in range(self.height):
-			matrix.append([" "] * self.width)
-
-		for key in self.board:
-			row, col = self.__get_point_tuple(key)
-			val = self.__get_value(row, col)
-			if val == 1:
-				matrix[row][col] = "O"
-			else:
-				matrix[row][col] = "X"
-
 		""" lets print it
 			something like this
 			x| |x| |O
@@ -196,16 +182,30 @@ class Gameboard(object):
 			O| | | | 
 		"""
 
-		for j in range(self.height):
-			if j != 0:
-				print(spacer)
-			row = matrix[j]
-			row_string = ""
-			for i in range(self.width):
-				row_string += row[i]
-				if i != 0 or i != self.width - 1:
-					row_string += "|"
-			print(row_string)
+		spacer = "".join( ["-"] * ( (self.width * 2) - 1 ) )
+		repr_string = ""
+		for row in range(self.height):
+			# matrix.append([" "] * self.width)
+			for col in range(self.width):
+				key = self.__gen_key(row, col)
+				if key in self.board:
+					val = self.board[key]
+					if val == 1:
+						repr_string += "O"
+					else:
+						repr_string += "X"
+				else:
+					repr_string += " "
+				if col != self.width - 1:
+					repr_string += "|"
+			# finished with a row, add newline
+			repr_string += "\n"
+			# lets also add spacer if were not at the last row
+			if row != self.height - 1:
+				repr_string += spacer
+				repr_string += "\n"
+
+		print(repr_string)
 
 
 if __name__ == "__main__":
