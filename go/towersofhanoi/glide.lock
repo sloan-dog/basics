@@ -1,0 +1,6 @@
+hash: 3d96f0185e1c4f538ea3f45dd56dee657bb2a3ac14b46e7d34af64491be8cb86
+updated: 2017-11-13T15:08:35.71342836-08:00
+imports:
+- name: github.com/gordonklaus/portaudio
+  version: e66c30a9c4ca11f93538cf8c004831bfb76f3838
+testImports: []

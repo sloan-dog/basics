@@ -1,3 +1,4 @@
 *.out
 # test files that i use for dev, but dont want checked
 **/_@_*
+temporary/*
